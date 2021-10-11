@@ -4,12 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "http-server ./dist",
+    "build": "rm -rf dist && mkdir dist && cp -r src/assets dist && cp -r src/css dist && cp -r src/js dist && cp src/index.html dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "stylelint **/*.css && eslint .",
-    "style:lint": "stylelint **/*.css",
-    "style:fix": "stylelint **/*.css --fix",
-    "js:lint": "eslint .",
-    "js:fix": "eslint ."
+    "lint": "stylelint src/css/**/*.css && eslint ./src/js",
+    "style:lint": "stylelint src/css/**/*.css",
+    "style:fix": "stylelint src/css/**/*.css --fix",
+    "js:lint": "eslint ./src/js",
+    "js:fix": "eslint ./src/js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.24.2",
+    "http-server": "^13.0.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "typescript": "^4.4.3"
